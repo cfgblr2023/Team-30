@@ -44,9 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "static",
     # 'school',
-    'widget_tweaks',
-    'tempus_dominus',
+    # 'widget_tweaks',
+    # 'tempus_dominus',
 ]
 JAZZMIN_SETTINGS = {
     "site_title": "Your Admin Site",
@@ -63,7 +64,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'schoolmanagement.urls'
@@ -79,23 +79,17 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-                  'social_django.context_processors.backends',  # <-- Here
-                'social_django.context_processors.login_redirect', # <-- Here
             ],
         },
     },
 ]
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
-    'social_core.backends.github.GithubOAuth2',
-
     'django.contrib.auth.backends.ModelBackend',
 )
 
 WSGI_APPLICATION = 'schoolmanagement.wsgi.application'
+# WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database
@@ -169,8 +163,8 @@ EMAIL_HOST_PASSWORD = 'xyz' # host email password required
 # this process is required because google blocks apps authentication by default
 EMAIL_RECEIVING_USER = ['to@gmail.com'] # email on which you will receive messages sent from website
 
-SOCIAL_AUTH_FACEBOOK_KEY = ''  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = ''  # App Secret
+# SOCIAL_AUTH_FACEBOOK_KEY = ''  # App ID
+# SOCIAL_AUTH_FACEBOOK_SECRET = ''  # App Secret
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 class imageinsert(models.Model):
     image=models.ImageField(upload_to='images/')
     name=models.CharField(max_length=100)
+    preditions = models.CharField(max_length=100)
     def __str__(self):  
         return self.name
 

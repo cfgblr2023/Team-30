@@ -12,7 +12,7 @@ from school import models
 from schoolmanagement import settings
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-
+import numpy as np
 from django.views import View
 from django.http import JsonResponse
 from .models import imageinsert
@@ -20,6 +20,15 @@ from .get_category import get_result
 import io
 from PIL import Image
 import matplotlib.pyplot as plt
+
+def home(request):
+    return render(request, "school/index.html")
+
+def contactus(request):
+    return render(request, "school/contactus.html")
+
+def category(request):
+    return render(request, "school/categories.html")
 
 class ImageUploadView(View):
     def post(self, request):
@@ -39,13 +48,16 @@ def image_upload_view(request):
         name = request.POST.get('name')
         image_file = request.FILES.get('image')
         if image_file:
-            my_model = imageinsert.objects.create(image=image_file, name=name)
-            in_memory_uploaded_file.seek(0)
-            image_data = in_memory_uploaded_file.read()
-            pil_image = Image.open(io.BytesIO(image_data))
-            mpimg = plt.imread(pil_image)
+            # image_file.seek(0)
+            # image_data = image_file.file.read()
+            # pil_image = Image.open(io.BytesIO(image_data))
+            # mpimg = plt.imread(pil_image)
+            img = Image.open(image_file)
+            np_image = np.array(img)
+            res = get_result(np_image)
+            my_model = imageinsert.objects.create(image=image_file, name=name,preditions=res)
             return redirect('image_upload_success')
-    return render(request, 'school/Contribute.html')
+    return render(request, 'school/UserGuidelines.html')
 
 def image_upload_success_view(request):
     return render(request, 'school/image_upload_success.html')
