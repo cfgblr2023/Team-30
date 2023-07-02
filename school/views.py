@@ -25,10 +25,10 @@ def home(request):
     return render(request, "school/index.html")
 
 def contactus(request):
-    return render(request, "school/contactus.html")
+    return render(request, "school/ContactUs.html")
 
 def category(request):
-    return render(request, "school/categories.html")
+    return render(request, "school/Categories.html")
 
 class ImageUploadView(View):
     def post(self, request):
@@ -56,7 +56,7 @@ def image_upload_view(request):
             np_image = np.array(img)
             res = get_result(np_image)
             my_model = imageinsert.objects.create(image=image_file, name=name,preditions=res)
-            return redirect('image_upload_success')
+            return render(request, 'school/UserGuidelines.html', {'name':name, "prediction": res})
     return render(request, 'school/UserGuidelines.html')
 
 def image_upload_success_view(request):

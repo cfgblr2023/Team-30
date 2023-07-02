@@ -415,16 +415,16 @@
 <body>
   <nav id="navbar">
     <div id="logoo">
-      <img src="logo.jpg" alt="" />
+      <img src="{% static 'images/logo.jpg' %}" alt="" />
     </div>
     <ul>
       <li class="item"><a href="/">Home</a></li>
       <li class="item"><a href="/category">Category</a></li>
-      <li class="item"><a href="/contribute">Contribute</a></li>
+      <li class="item"><a href="/upload">Contribute</a></li>
       <li class="item"><a href="/contactus">Contact Us</a></li>
     </ul>
     <div class="dropdown">
-      <button onclick="dropDownFunction()" class="dropbtn">Admin Login</button>
+      <a href="/admin">Admin</a>
     </div>
   </nav>
 
@@ -434,7 +434,7 @@
       <footer>
         <div class="footer-container">
           <div class="footer">
-            <img src="logo.png" alt="">
+            <img src="{% static 'images/logo.png' %}" alt="">
             <div class="footer-heading footer-2">
               <div class="footer-email-form">
                 <h2>Contact Info:
@@ -452,11 +452,6 @@
               <a href="https://www.youtube.com/">Youtube</a>
               <a href="https://twitter.com/">Twitter</a>
             </div>
-            <!-- <div class="footer-email-form">
-                      <h2>Mail us at</h2>
-                      <input type="email" placeholder="Enter your email address" id="footer-email">
-                      <input type="submit" value="Sign Up" id="footer-email-btn">
-                    </div> -->
       </footer>
     </div>
   </section>

@@ -11,8 +11,8 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('/category', category, name='category'),
-    path('/contactus', contactus, name='contactus'),
+    path('category/', category, name='category'),
+    path('contactus/', contactus, name='contactus'),
     path('upload/', image_upload_view, name='image_upload'),
     path('upload/success/', image_upload_success_view, name='image_upload_success'),
     # path('',views.home_view,name='home'),

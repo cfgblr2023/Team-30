@@ -10,10 +10,6 @@
   <title>Categories</title>
 
   <style>
-    /* style.css */
-
-    /* Global Styles */
-
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -396,30 +392,30 @@
 <body>
   <nav id="navbar">
     <div id="logoo">
-      <img src="logo.jpg" alt="" />
+      <img src="{% static 'images/logo.jpg' %}" alt="" />
     </div>
     <ul>
       <li class="item"><a href="/">Home</a></li>
       <li class="item"><a href="/category">Category</a></li>
-      <li class="item"><a href="/contribute">Contribute</a></li>
+      <li class="item"><a href="/upload">Contribute</a></li>
       <li class="item"><a href="/contactus">Contact Us</a></li>
     </ul>
     <div class="dropdown">
-      <button onclick="dropDownFunction()" class="dropbtn">Admin Login</button>
+      <a href="/admin">Admin</a>
     </div>
   </nav>
   <section id="category-container">
     <h1 class="h-primary center">OUR CATEGORIES</h1>
     <div id="category">
       <div class="box">
-        <img src="encroachmentt.jpg" alt="" />
+        <img src="{% static 'images/encroachmentt.jpg' %}" alt="" />
         <h2 class="h-secondary center">ENCROACHMENT</h2>
         <p class="center">
           Structural encroachment occurs when a property owner builds or extends a structure onto public spaces.
         </p>
       </div>
       <div class="box">
-        <img src="obstruction.jpg" alt="" />
+        <img src="{% static 'images/obstruction.jpg' %}" alt="" />
         <h2 class="h-secondary center">OBSTRUCTION</h2>
         <p class="center">
           Obstructions are objects which have been unlawfully placed on a road or street, or which overhang a road or
@@ -427,14 +423,14 @@
         </p>
       </div>
       <div class="box">
-        <img src="waste.jpg" alt="" />
+        <img src="{% static 'images/waste.jpg' %}" alt="" />
         <h2 class="h-secondary center">WASTE</h2>
         <p class="center">
           Waste are unwanted or unusable materials.
         </p>
       </div>
       <div class="box">
-        <img src="Foot path quality.jpg" alt="" />
+        <img src="{% static 'images/Foot path quality.jpg' %}" alt="" />
         <h2 class="h-secondary center">BROKEN FOOTPATH</h2>
         <p class="center">
           The footpath which is in in bad shape with broken and missing slabs.

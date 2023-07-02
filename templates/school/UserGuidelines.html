@@ -401,17 +401,17 @@
 
   <nav id="navbar">
     <div id="logoo">
-      <img src="logo.jpg" alt="" />
+      <img src="{% static 'images/logo.jpg' %}" alt="" />
     </div>
     <ul>
       <li class="item"><a href="/">Home</a></li>
       <li class="item"><a href="/category">Category</a></li>
-      <li class="item"><a href="/contribute">Contribute</a></li>
+      <li class="item"><a href="/upload">Contribute</a></li>
       <li class="item"><a href="/contactus">Contact Us</a></li>
     </ul>
     <div class="dropdown">
-      <button onclick="dropDownFunction()" class="dropbtn">Admin Login</button>
-    </div>
+      <a href="/admin">Admin</a>
+  </div>
   </nav>
 
   <section id="UserGuidelines-section">
@@ -420,51 +420,38 @@
       <p class="center">
         Fill in your name and map prevalent footpath issues by uploading an image of the same.
       </p>
-      <form action="">
+      <form action="{% url 'image_upload' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="name">
+        <input  type="file" name="image">
+        <button type="submit">Upload</button>
+        </form>
+        {% if request.POST %}
+        <h1>NAME : {{name}}</h1>
+        <h1>PREDICTIONS: {{prediction}} </h1>
+        <div class="boxes">
+          <canvas id="can"></canvas>
+        </div>
+        {% endif %}
+
+      <!-- <form action="{% url 'image_upload' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
         <div id="form-group">
           Name :
           <input type="text" name="name" id="name" placeholder="Enter Your Name" />
-
-
-
         </div>
-
-
       </form>
-      <!-- <form>
-           
-            <p>
-                <label>Name : <input type="text" /></label>
-            </p>
-            
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-                <label class="ctr">Visualize By :
-                    <ul style="list-style-type:none;">
-                    <li><input class="iptype" type="radio" name="pt" value="point" />Point</li>
-                    <li><input class="iptype" type="radio" name="ext" value="extended" />Extended</li>
-                    </label>
-            </P>
-            
-            <p>
-                <button type="submit">Submit</button>
-            </p> -->
-      <!-- <div><canvas id="can"></canvas></div> -->
       <div id="x">
-        <!-- <input type="button" value="Download Image" onclick="download()" > -->
-
-
         <input type="file" multiple="false" id="inp" onchange="upload()">
-
-
         <input class="iptype" type="button" value="Clear the Image" onclick="clearcanvas()">
       </div>
       <div class="boxes">
         <canvas id="can"></canvas>
-
       </div>
-      <button id="submit" onclick="submit()" type=submit class="btn btn-primary mr-2">Submit</button>
+      <button type="submit">Submitttt</button>
+      <button id="submit" type=submit class="btn btn-primary mr-2">Submit</button>
     </div>
-    </form>
+    </form> -->
   </section>
   <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
   <script type="text/javascript">
