@@ -114,6 +114,9 @@
       background-color: #ddd;
     }
 
+    .centerbox{
+      align-items: center;
+    }
     .show {
       display: block;
     }
@@ -386,6 +389,16 @@
     .cd {
       text-align: center;
     }
+    #12{
+      align-items: center;
+      background-color: hwb(186 2% 75%);
+      /* color: white; */
+      padding: 20px;
+     display: flex;
+       justify-content: space-between; 
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 
@@ -436,6 +449,16 @@
           The footpath which is in in bad shape with broken and missing slabs.
         </p>
       </div>
+      <center>
+      <div id="12" class="box">
+        <img src="{% static 'images/uz.jpg' %}" alt="" />
+        <h2 class="h-secondary center">UNSAFE ZONES</h2>
+        <p class="center">
+          The footpath which is in in bad shape with broken and missing slabs.
+        </p>
+      
+    </div>
+  </center>
     </div>
   </section>
 

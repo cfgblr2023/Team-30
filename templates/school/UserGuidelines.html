@@ -422,22 +422,34 @@
       </p>
       <form action="{% url 'image_upload' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="text" name="name">
+        Name: <input type="text" name="name">
+        Address: <input type="text" name="address">
         <input  type="file" name="image">
         <button type="submit">Upload</button>
         </form>
         {% if request.POST %}
         <h1>NAME : {{name}}</h1>
         <h1>PREDICTIONS: {{prediction}} </h1>
-        <div class="boxes">
+        <!-- <div class="boxes">
           <canvas id="can"></canvas>
-        </div>
+        </div> -->
+        {% if(prediction=="Waste")% }
+        
+        {% end if%}
+        {% if(prediction=="Footpath Quality")% }
+        {% end if%}
+        {% if(prediction=="Obstruction")% }
+        {% end if%}
+        {% if(prediction=="Encroachment")% }
+        {% end if%}
+        {% if(prediction=="Unsafe Zone")% }
+        {% end if%}
         {% endif %}
 
       <!-- <form action="{% url 'image_upload' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+        {% csrf_token %}{
         <div id="form-group">
-          Name :
+          Name :}
           <input type="text" name="name" id="name" placeholder="Enter Your Name" />
         </div>
       </form>

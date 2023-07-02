@@ -9,7 +9,7 @@ class OrderForm(forms.ModelForm):
     image=forms.ImageField()
     class Meta:
         model = imageinsert
-        fields = ['name', 'image']
+        fields = ['name', 'image','address']
 
 # #for admin
 # class AdminSigupForm(forms.ModelForm):
