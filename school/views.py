@@ -36,7 +36,7 @@ class ImageUploadView(View):
         image_file = request.FILES.get('image')
         address = request.POST.get('address')
         if image_file:
-            my_model = imageinsert.objects.create(image=image_file, name=name)
+            my_model = imageinsert.objects.create(image=image_file, name=name, address=address)
             return JsonResponse({'success': True})
         else:
             return JsonResponse({'success': False, 'error': 'No image file provided.'})

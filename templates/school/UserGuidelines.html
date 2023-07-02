@@ -422,9 +422,12 @@
       </p>
       <form action="{% url 'image_upload' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        Name: <input type="text" name="name">
-        Address: <input type="text" name="address">
-        <input type="file" name="image">
+        <div>Name: <input type="text" name="name"></div>
+        <br>
+        <div>Address: <input type="text" name="address"></div>
+        <br>
+        Image:
+        <input type="file" name="image" accept=".jpg, .jpeg, .png">
         <button type="submit">Upload</button>
       </form>
       {% if request.POST %}
@@ -433,15 +436,17 @@
       <!-- <div class="boxes">
           <canvas id="can"></canvas>
         </div> -->
-      {% if(prediction=="Waste")% }
+        {% endif %}
+
+      {% if prediction == "Waste" %}
       <p>In urban areas, garbage of all kinds is collected and treated as municipal solid waste; garbage that is
         discarded in ways that cause it to end up in the environment, rather than in containers or facilities designed
         to receive garbage, is considered litter. Litter is a form of garbage that has been improperly disposed of, and
-        which therefore enters the environment.Notably, however, only a small fraction of garbage that is generated
+        which therefore enters the environment. Notably, however, only a small fraction of garbage that is generated
         becomes litter, with the vast majority being disposed of in ways intended to secure it from entering the
         environment.</p>
-      {% end if%}
-      {% if(prediction=="Footpath Quality")% }
+
+      {% elif prediction == "Footpath Quality" %}
       <p>Footpath erosion is caused by the extensive trampling of vegetation and soil. The process of path erosion can
         be split into four main steps.
 
@@ -451,21 +456,22 @@
         the soil is tight, and it causes the rain to follow the path because the path is the lowest point. Soil
         particles wash away, more vegetation dies, less roots now exist and it becomes easier for even more soil to wash
         away.</p>
-      {% end if%}
-      {% if(prediction=="Obstruction")% }
+
+      {% elif prediction == "Obstruction" %}
       <p>It is illegal to obstruct the road. If somebody unlawfully assumes ownership of areas of a road, they are
         breaking the law. If a person, without lawful authority or excuse, in any way wilfully obstructs the free
         passage along a road, they are also guilty of an offence.
 
         In such cases the council, as the highway authority, has legal powers to enforce their removal.</p>
-      {% end if%}
-      {% if(prediction=="Encroachment")% }
+
+      {% elif prediction == "Encroachment" %}
       <p>Structural encroachment occurs when a property owner builds or extends a structure onto the public domain such
         as sidewalks or roads. In most cases, sidewalks and residential streets are generally public property owned by
         the municipal government.</p>
-      {% end if%}
-
       {% endif %}
+
+
+
 
       <!-- <form action="{% url 'image_upload' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}{
